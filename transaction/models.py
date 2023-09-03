@@ -41,8 +41,6 @@ class UserTransaction(BaseModel):
     @classmethod
     def check_user_froud(cls, user_id):
         transactions = cls.get_deposit_amount_per_user(user_id)
-        print("*" * 80)
-        print(transactions)
         if (
             not transactions["before_48_hours_ago"]
             and not transactions["after_48_hours_ago"]
